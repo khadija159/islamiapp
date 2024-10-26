@@ -32,6 +32,7 @@ class _SuraContentScreen extends State<SuraContentScreen>{
         ),
       ),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(args.suraName),
         ),
@@ -51,6 +52,7 @@ class _SuraContentScreen extends State<SuraContentScreen>{
                 itemBuilder: (_,index) => Text(
                     ayat[index],
                   style: Theme.of(context).textTheme.titleLarge,
+                  textAlign: TextAlign.center,
               ),
             itemCount: ayat.length,
           ),

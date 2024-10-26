@@ -22,7 +22,7 @@ class AppTheme{
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: black,
-      unselectedItemColor: white,
+       unselectedItemColor: white,
       backgroundColor: lightPrimary,
     ),
     textTheme: TextTheme(
