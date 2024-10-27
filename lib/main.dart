@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:islami/home.dart';
 import 'package:islami/tabs/hadeth/hadeth_content_screen.dart';
 import 'package:islami/tabs/quran/sura_content_screen.dart';
+import 'package:islami/tabs/settings/settings.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
-  runApp(const IslamiApp());
+  runApp(ChangeNotifierProvider(create: (_) => Settings(),child: IslamiApp()));
 }
 
 class IslamiApp extends StatelessWidget{
-  const IslamiApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Settings settingsProvider = Provider.of<Settings>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -24,7 +29,10 @@ class IslamiApp extends StatelessWidget{
       initialRoute: HomeScreen.routeName,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: settingsProvider.themeMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingsProvider.languageCode),
     );
   }
 

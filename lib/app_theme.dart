@@ -40,5 +40,33 @@ class AppTheme{
   );
   static ThemeData darkTheme = ThemeData(
     primaryColor: darkPrimary,
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      foregroundColor: white,
+      titleTextStyle: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: white,
+      ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: gold,
+      unselectedItemColor: white,
+      backgroundColor: darkPrimary,
+    ),
+    textTheme: TextTheme(
+      headlineSmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: white,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: gold,
+      ),
+    ),
   );
 }

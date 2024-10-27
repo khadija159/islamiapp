@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/tabs/hadeth/hadeth.dart';
+import 'package:provider/provider.dart';
 import '../../app_theme.dart';
+import '../settings/settings.dart';
 
 
 
@@ -10,12 +12,13 @@ class HadethContentScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    Settings settingsProvider = Provider.of<Settings>(context);
     Hadeth args = ModalRoute.of(context)!.settings.arguments as Hadeth;
 
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage('assets/images/${Provider.of<Settings>(context).backgroundImage}.png'),
           fit: BoxFit.fill,
         ),
       ),
@@ -31,7 +34,7 @@ class HadethContentScreen extends StatelessWidget{
             horizontal: 24,
           ),
           decoration: BoxDecoration(
-            color: AppTheme.white,
+            color: settingsProvider.isDark ? AppTheme.darkPrimary : AppTheme.white,
             borderRadius: BorderRadius.circular(25),
           ),
           child:ListView.builder(
