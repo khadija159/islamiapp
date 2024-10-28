@@ -10,6 +10,9 @@ class Settings with ChangeNotifier {
 
   String get backgroundImage => isDark ? 'dark_bg' : 'default_bg';
 
+  String get sebhaBodyImage => isDark ? 'body_sebha_dark' : 'body_sebha_logo';
+  String get sebhaHeadImage => isDark ? 'head_sebha_dark' : 'head_sebha_logo';
+
   void changeTheme(ThemeMode selectedTheme){
     themeMode = selectedTheme;
     notifyListeners();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/tabs/settings/settings.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'language.dart';
 
 class SettingsTab extends StatefulWidget{
@@ -26,7 +27,7 @@ class _SettingsTab extends State<SettingsTab>{
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Dark Theme',
+              Text(AppLocalizations.of(context)!.themedark,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),
               ),
               Switch(value: settingsProvider.isDark,
@@ -38,7 +39,7 @@ class _SettingsTab extends State<SettingsTab>{
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Language',
+              Text(AppLocalizations.of(context)!.langs,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),
               ),
               DropdownButtonHideUnderline(child:

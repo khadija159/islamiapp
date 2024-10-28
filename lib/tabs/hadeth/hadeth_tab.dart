@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/loading_indicator.dart';
 import 'package:islami/tabs/hadeth/hadeth_content_screen.dart';
+import 'package:provider/provider.dart';
+import '../../app_theme.dart';
+import '../settings/settings.dart';
 import 'hadeth.dart';
 
 class HadethTab extends StatefulWidget{
@@ -24,14 +27,14 @@ class _HadethTab extends State<HadethTab>{
           height: MediaQuery.sizeOf(context).height * 0.25,
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Provider.of<Settings>(context).isDark ? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 4,
         ),
         Text('الأحاديث',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Provider.of<Settings>(context).isDark ? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 4,
         ),
         Expanded(
